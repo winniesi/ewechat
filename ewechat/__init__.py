@@ -1,1 +1,1 @@
-from .login import Wechat
+from .message import WechatMessage as Wechat

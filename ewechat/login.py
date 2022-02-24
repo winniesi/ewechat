@@ -2,7 +2,7 @@ import requests
 import webbrowser
 
 
-class Wechat:
+class WechatLogin:
     def __init__(
         self,
         *,
@@ -58,7 +58,9 @@ class Wechat:
 
         if self.wcId and self.wcId:
             with open("logged_in", "w") as file:
-                file.write(f"wId={self.wId}\nwcId={self.wcId}")
+                file.write(
+                    f"wId={self.wId}\nwcId={self.wcId}\nauthorization={self.authorization}"
+                )
             return {
                 "wcID": self.wcId,
                 "wId": self.wId,
