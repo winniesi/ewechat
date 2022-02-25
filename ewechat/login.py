@@ -101,3 +101,14 @@ class WechatLogin:
     def my_wcid(self):
         response = self.get_ipad_login_info()
         return response["wcId"]
+
+    def sencond_login(self, saved_wcid: str = None):
+        if self.wcId is None and saved_wcid is None:
+            raise Exception("需要重新登录，或者通过参数 saved_wcid 传入上次登录后保存的的 wcId")
+        wcId = self.wcId or saved_wcid
+        raw_data = {"wcId": wcId, "type": 2}
+        response = self._make_request(url_suffix="secondLogin", raw_data=raw_data)
+        if response.json()["code"] == "1000":
+            return response.json()
+        else:
+            raise Exception(response.json())
