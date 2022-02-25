@@ -1,6 +1,6 @@
-from . import message, circle
+from . import send, circle, receive
 
 
-class Wechat(message.Message, circle.Circle):
+class Wechat(send.Send, circle.Circle, receive.Receive):
     def __init__(self, **kwargs) -> None:
         super().__init__(**kwargs)

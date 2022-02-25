@@ -1,7 +1,7 @@
 from .login import Login
 
 
-class Message(Login):
+class Send(Login):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
@@ -18,3 +18,13 @@ class Message(Login):
 
     def send_video(self, path: str, thumbPath: str):
         return super()._base_request("sendVideo", path=path, thumbPath=thumbPath)
+
+    def send_url(self, wcId, title, url, description, thumbUrl):
+        return super()._base_request(
+            "sendUrl",
+            wcId=wcId,
+            title=title,
+            url=url,
+            description=description,
+            thumbUrl=thumbUrl,
+        )
