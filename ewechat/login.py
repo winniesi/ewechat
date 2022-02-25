@@ -2,7 +2,7 @@ import requests
 import webbrowser
 
 
-class WechatLogin:
+class Login:
     def __init__(
         self,
         *,
@@ -112,3 +112,14 @@ class WechatLogin:
             return response.json()
         else:
             raise Exception(response.json())
+
+    def _base_request(self, url_suffix: str, **kwargs):
+        raw_data = {**kwargs}
+        raw_data["wId"] = self.wId
+        res = self._make_request(
+            url_suffix=url_suffix, method="post", raw_data=raw_data
+        ).json()
+        if res["code"] == "1000":
+            return res["data"]
+        else:
+            raise Exception(res)

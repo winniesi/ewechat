@@ -131,3 +131,4 @@ dmypy.json
 # wechat login information
 logged_in
 test.py
+circle.json
