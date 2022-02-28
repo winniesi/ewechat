@@ -2,9 +2,6 @@ from .login import Login
 
 
 class Circle(Login):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-
     def get_friend_circle(self, wcId: str, firstPageMd5: str = "", maxId: int = 0):
         """获取指定好友的朋友圈"""
         return super()._base_request(

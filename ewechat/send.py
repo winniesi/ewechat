@@ -2,9 +2,6 @@ from .login import Login
 
 
 class Send(Login):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-
     def send_text(self, wcId: str, content: str):
         return super()._base_request("sendText", wcId=wcId, content=content)
 

@@ -42,7 +42,7 @@ class Login:
         except Exception:
             raise Exception(response.json())
 
-    def login_in(self):
+    def login(self):
         """
         登录微信步骤：
         1. 获取微信二维码
@@ -98,7 +98,7 @@ class Login:
         else:
             return False
 
-    def my_wcid(self):
+    def get_my_wcid(self):
         response = self.get_ipad_login_info()
         return response["wcId"]
 
