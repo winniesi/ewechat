@@ -19,10 +19,10 @@
 下载安装该包：
 
 ```shell
-git clone git@github.com:winniesi/ewechat.git
+pip install ewechat
 ```
 
-在你的代码里引入：
+### 登录
 
 ```python
 from ewechat import Wechat
@@ -37,8 +37,93 @@ my_wechat = Wechat(base_url=url, auth=authorization)
 # 进行登录，在弹出二维码后请用手机扫码登录
 my_wechat.login_in()
 
-# 登录完成后会在创建文件 logged_in
+# 登录完成后会在当前目录创建文件 logged_in
 # 记录你的一些参数，参数的意义请参照服务商文档
 ```
 
-目前已经完成了一小部分接口，我会尽快写完。
+### 通讯录
+
+**初始化通讯录列表**
+
+```python
+w.init_address_list()
+```
+
+**获取通讯录列表**
+
+```python
+w.get_address_list()
+```
+
+**获取联系人信息**
+
+```python
+w.get_contact(wcId: str)
+```
+
+## 消息发送
+
+**发送文本消息**
+
+```python
+w.send_text(wcId: str, content: str)
+```
+
+**发送文件消息**
+
+```python
+w.send_file(wcId: str, path: str, fileName: str
+```
+
+**发送图片消息**
+
+```python
+w.send_image(wcId: str, content: str)
+```
+
+**发送视频消息**
+
+```python
+w.send_video(path: str, thumbPath: str)
+```
+
+**发送 URL 消息**
+
+```python
+w.send_url(wcId, title, url, description, thumbUrl)
+```
+
+## 消息接收
+
+**设置消息接收地址**
+
+返回 None 即设置成功，如果设置失败会引发异常。
+
+```python
+w.set_http_callback_url(self, httpUrl: str, type: int)
+```
+
+**取消消息接收**
+
+```python
+w.cancel_http_callback_url()
+```
+
+**下载图片**
+
+```type``` 0是常规图片，1是高清图。
+
+```python
+w.get_msg_img(msgId: str, content: str, type: int = 1)
+```
+
+## 朋友圈
+
+**获取指定好友朋友圈**
+
+第一次使用 ```firstPageMd5``` 和 ```maxId``` 请留空。
+
+```python
+w.get_friend_circle(wcId: str, firstPageMd5: str = "", maxId: int = 0)
+```
+
