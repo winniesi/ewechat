@@ -92,10 +92,10 @@ class Login:
     def is_logged_in(self) -> bool:
         if self.wId is None:
             return False
-        response = self.get_ipad_login_info()
-        if response["code"] == "1000":
+        try:
+            self.get_ipad_login_info()
             return True
-        else:
+        except Exception:
             return False
 
     def get_my_wcid(self):
