@@ -109,6 +109,12 @@ class Login:
         raw_data = {"wcId": wcId, "type": 2}
         response = self._make_request(url_suffix="secondLogin", raw_data=raw_data)
         if response.json()["code"] == "1000":
+            self.wId = response.json()["data"]["wId"]
+            self.wcId = response.json()["data"]["wcId"]
+            with open("logged_in", "w") as file:
+                file.write(
+                    f"wId={self.wId}\nwcId={self.wcId}\nauthorization={self.authorization}"
+                )
             return response.json()
         else:
             raise Exception(response.json())
