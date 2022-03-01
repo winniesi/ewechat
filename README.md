@@ -46,19 +46,19 @@ my_wechat.login_in()
 **初始化通讯录列表**
 
 ```python
-w.init_address_list()
+my_wechat.init_address_list()
 ```
 
 **获取通讯录列表**
 
 ```python
-w.get_address_list()
+my_wechat.get_address_list()
 ```
 
 **获取联系人信息**
 
 ```python
-w.get_contact(wcId: str)
+my_wechat.get_contact(wcId: str)
 ```
 
 ## 消息发送
@@ -66,31 +66,31 @@ w.get_contact(wcId: str)
 **发送文本消息**
 
 ```python
-w.send_text(wcId: str, content: str)
+my_wechat.send_text(wcId: str, content: str)
 ```
 
 **发送文件消息**
 
 ```python
-w.send_file(wcId: str, path: str, fileName: str
+my_wechat.send_file(wcId: str, path: str, fileName: str)
 ```
 
 **发送图片消息**
 
 ```python
-w.send_image(wcId: str, content: str)
+my_wechat.send_image(wcId: str, content: str)
 ```
 
 **发送视频消息**
 
 ```python
-w.send_video(path: str, thumbPath: str)
+my_wechat.send_video(path: str, thumbPath: str)
 ```
 
 **发送 URL 消息**
 
 ```python
-w.send_url(wcId, title, url, description, thumbUrl)
+my_wechat.send_url(wcId, title, url, description, thumbUrl)
 ```
 
 ## 消息接收
@@ -100,13 +100,13 @@ w.send_url(wcId, title, url, description, thumbUrl)
 返回 None 即设置成功，如果设置失败会引发异常。
 
 ```python
-w.set_http_callback_url(self, httpUrl: str, type: int)
+my_wechat.set_http_callback_url(self, httpUrl: str, type: int)
 ```
 
 **取消消息接收**
 
 ```python
-w.cancel_http_callback_url()
+my_wechat.cancel_http_callback_url()
 ```
 
 **下载图片**
@@ -114,7 +114,7 @@ w.cancel_http_callback_url()
 ```type``` 0是常规图片，1是高清图。
 
 ```python
-w.get_msg_img(msgId: str, content: str, type: int = 1)
+my_wechat.get_msg_img(msgId: str, content: str, type: int = 1)
 ```
 
 ## 朋友圈
@@ -124,6 +124,6 @@ w.get_msg_img(msgId: str, content: str, type: int = 1)
 第一次使用 ```firstPageMd5``` 和 ```maxId``` 请留空。
 
 ```python
-w.get_friend_circle(wcId: str, firstPageMd5: str = "", maxId: int = 0)
+my_wechat.get_friend_circle(wcId: str, firstPageMd5: str = "", maxId: int = 0)
 ```
 
