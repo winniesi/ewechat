@@ -132,3 +132,7 @@ dmypy.json
 logged_in
 test.py
 circle.json
+
+# direnv
+.direnv
+.envrc

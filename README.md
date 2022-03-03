@@ -127,3 +127,15 @@ my_wechat.get_msg_img(msgId: str, content: str, type: int = 1)
 my_wechat.get_friend_circle(wcId: str, firstPageMd5: str = "", maxId: int = 0)
 ```
 
+**发送文字朋友圈**
+
+```python
+my_wechat.sns_send(self, content: str)
+```
+
+**发送图片朋友圈**
+
+```python
+my_wechat.sns_send_image(self, content: str, paths: str, groupUser: str = None, blackList: str = None)
+```
+
