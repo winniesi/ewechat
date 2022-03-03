@@ -19,7 +19,7 @@
 下载安装该包：
 
 ```shell
-pip install ewechat
+python3 -m pip install ewechat
 ```
 
 ### 登录
@@ -100,7 +100,7 @@ my_wechat.send_url(wcId, title, url, description, thumbUrl)
 返回 None 即设置成功，如果设置失败会引发异常。
 
 ```python
-my_wechat.set_http_callback_url(self, httpUrl: str, type: int)
+my_wechat.set_http_callback_url(httpUrl: str, type: int)
 ```
 
 **取消消息接收**
@@ -111,7 +111,7 @@ my_wechat.cancel_http_callback_url()
 
 **下载图片**
 
-```type``` 0是常规图片，1是高清图。
+`type` 0 是常规图片，1 是高清图。
 
 ```python
 my_wechat.get_msg_img(msgId: str, content: str, type: int = 1)
@@ -121,7 +121,7 @@ my_wechat.get_msg_img(msgId: str, content: str, type: int = 1)
 
 **获取指定好友朋友圈**
 
-第一次使用 ```firstPageMd5``` 和 ```maxId``` 请留空。
+第一次使用 `firstPageMd5` 和 `maxId` 请留空。
 
 ```python
 my_wechat.get_friend_circle(wcId: str, firstPageMd5: str = "", maxId: int = 0)
@@ -130,12 +130,11 @@ my_wechat.get_friend_circle(wcId: str, firstPageMd5: str = "", maxId: int = 0)
 **发送文字朋友圈**
 
 ```python
-my_wechat.sns_send(self, content: str)
+my_wechat.sns_send(content: str)
 ```
 
 **发送图片朋友圈**
 
 ```python
-my_wechat.sns_send_image(self, content: str, paths: str, groupUser: str = None, blackList: str = None)
+my_wechat.sns_send_image(content: str, paths: str, groupUser: str = None, blackList: str = None)
 ```
-
